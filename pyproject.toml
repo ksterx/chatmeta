@@ -1,0 +1,17 @@
+[project]
+name = "chatmeta"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "build>=1.2.1",
+    "twine>=5.1.1",
+]

@@ -1,8 +1,8 @@
-from datasets import load_dataset, Dataset
+from datasets import Dataset, load_dataset
 from transformers import AutoTokenizer
 
 
-class Printer:
+class ChatMeta:
     def __init__(
         self,
         repo: str,
@@ -33,6 +33,17 @@ class Printer:
             self.tokenizer = AutoTokenizer.from_pretrained("Spiral-AI/anonymous-7b")
 
     def __getitem__(
+        self,
+        idx: int = 0
+    ):
+        return self.tokenizer.apply_chat_template(
+            self.dataset[self.chat_column][idx],
+            tokenize=False,
+            add_generation_prompt=False,
+        )
+
+
+    def print(
         self,
         idx: int = 0,
         add_generation_prompt: bool = False,

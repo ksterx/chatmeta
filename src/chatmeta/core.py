@@ -32,6 +32,9 @@ class ChatMeta:
         if format is None:
             self.tokenizer = AutoTokenizer.from_pretrained("Spiral-AI/anonymous-7b")
 
+    def __len__(self):
+        return len(self.dataset)
+
     def __getitem__(
         self,
         idx: int = 0
